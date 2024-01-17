@@ -1,0 +1,34 @@
+
+namespace {{ to_pascal_code source.namespace }} {
+    /**
+     * @brief View in the MTConnect Model browser
+	{{~ if source?.summary != null && source?.summary != "" ~}}
+	 * @details {{ source?.summary }}
+	{{~ end ~}}
+     * @link https://model.mtconnect.org/#Enumeration__{{ source.reference_id }} model.mtconnect.org
+     */
+	 enum {{ to_pascal_case source.name }} {
+	{{~ for item in source.items ~}}
+{{~ n_item_version_slim = (item?.normative_version | string.slice 20 3) | string.replace "_" "."
+d_item_version_slim = (item?.deprecated_version | string.slice 20 3) | string.replace "_" "." ~}}
+		{{~ if item?.summary != null && item?.summary != "" ~}}
+		/**
+		 * @details {{ item?.summary }}
+		{{~ if n_item_version_slim != "" || d_item_version_slim != "" ~}}
+		 *
+		 *
+		{{~ if n_item_version_slim != "" ~}}
+		 * Introduced: v{{ n_item_version_slim }}
+		 * @link https://model.mtconnect.org/#_Version_{{ n_item_version_slim }} Introduced
+		{{~ end ~}}
+		{{~ if d_item_version_slim != "" ~}}
+		 * Deprecated: v{{ d_item_version_slim }}
+		 * @link https://model.mtconnect.org/#_Version_{{ d_item_version_slim }} Deprecated
+		{{~ end ~}}
+		{{~ end ~}}
+		 */
+		{{~ end ~}}
+		{{ item.name }},
+	{{~ end ~}}
+	 };
+}

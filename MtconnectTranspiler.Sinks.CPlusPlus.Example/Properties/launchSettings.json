@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MtconnectTranspiler.Sinks.CPlusPlus.Example": {
+      "commandName": "Project",
+      "commandLineArgs": "\"%UserProfile%\\Desktop\\MTConnect Transpiled\\Cpp\" \"C:\\Users\\LightWorks\\Source\\Repos\\mtconnect_sysml_model_dev\\MTConnect SysML Model.xml\""
+    }
+  }
+}

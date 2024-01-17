@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Templates\Enum.scriban" />
+    <None Remove="Templates\UmlCommentsSummaryContent.scriban" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Templates\Enum.scriban">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Templates\UmlCommentsSummaryContent.scriban">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MtconnectTranspiler" Version="1.0.8.2-prerelease" />
+    <PackageReference Include="MtconnectTranspiler.Sinks.ScribanTemplates" Version="1.0.15.3-prerelease" />
+    <PackageReference Include="Scriban" Version="5.9.1" />
+  </ItemGroup>
+
+</Project>

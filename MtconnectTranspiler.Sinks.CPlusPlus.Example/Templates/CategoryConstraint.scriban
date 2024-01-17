@@ -1,0 +1,14 @@
+#include <unordered_map>
+#include <vector>
+#include <string>
+
+namespace {{ source.namespace }} {
+    class {{ source.category }} {
+    public:
+        inline static std::unordered_map<std::string, std::vector<std::string>> {{ source.category }}Constraints = {
+	{{~ for item in source.constraints ~}}
+		{ "{{ item.key }}", { {{ for value in item.value ~}}"{{ value }}"{{ if !for.last }},{{ end }}{{~ end }} } }{{ if !for.last }}, {{ end }}
+	{{~ end ~}}
+        };
+    };
+}
